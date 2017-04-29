@@ -2,29 +2,24 @@
 jenkins-slave-centos
 --------------------------------------
 
-# 构建镜像
-```
-$ make build
-```
-# 发布镜像
-```
-$ make push
-```
+`FROM centos:7`
 
+# 构建镜像 && 发布镜像
+```
+$ ./build.sh [tag]
+```
 
 #### Installed packages
 
-| Package                     | Comment                                                                          |
-|-----------------------------|----------------------------------------------------------------------------------|
-| wget                        | weget命令支持                                                                     |
-| tar.x86_64                  | 压缩包处理                                                                         |
-| which                       | which命令支持                                                                     |
-| gcc automake autoconf libtool make c++           | 开发者编译套件                                                |
-| openssh-server              | Jenkins communicates via ssh with its slaves.                                    |
-| git                         | Most projects use GIT for version control.                                       |
+| Package | Comment |
+| ------- | ------- |
+| openssh-server | An open source SSH server daemon |
+| git | Fast Version Control System |
+| unzip |A utility for unpacking zip files |
+| lsof | A utility which lists open files on a Linux/UNIX system |
+| java-1.8.0-openjdk-headless | OpenJDK Runtime Environment |
+
 
 #### User
 
-| uid  | username | password |
-|------|----------|----------|
-| 1000 | jenkins  | jenkins  |
+内置jenkins:jenkins用户， 可ssh登录， 开放22端口
